@@ -1,12 +1,31 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Jane's Lottery</title>
+        <title>The Velvet Room</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Sekuya&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="pages/common/common.css">
     </head>
 
     <body>
-        <a href="pages/rules.html">Lets learn the rules</a>
+        <span id="rulesCont" class="titleFont">Welcome To The Velvet Room</span>
+        <span id="subText" class="titleFont">This truly is an unjust game, your odds of winning are slim to none. But if you are here now then there is still a chance</span>
+        <div id="gamesCont">
+            <a id="p5" class="game" href="pages/royal/royal.html">
+                <img class="lottoTicketImg" src="resources/index/royal.jpeg" alt="Take Your Heart">
+                <img class="fontImg" src="resources/index/p5font.png" alt="Steal Your Wallet">
+            </a>
+            <a id="p4" class="game" href="pages/golden/golden.html">
+                <img class="lottoTicketImg" src="resources/index/golden.avif" alt="The Golden Ticket">
+                <img class="fontImg" src="resources/index/p4font.png" alt="Steal Your Wallet">
+            </a>
+            <a id="p3r" class="game" href="pages/moon/moon.html">
+                <img class="lottoTicketImg" src="resources/index/fullMoon.jpg" alt="Full Foon Full Fallet">
+                <img class="fontImg" src="resources/index/p3rfont.png" alt="Steal Your Wallet">
+            </a>
+        </div>
     </body>
     <script src="index.js"></script>
 </html>
