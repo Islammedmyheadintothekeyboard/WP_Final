@@ -1,0 +1,84 @@
+body {
+    background-image: url("../../resources/royal/royalBack.jpg");
+    background-size: 100%;
+}
+
+span {
+    text-align: center;
+}
+
+#royalTicket {
+    top: 10vh;
+    right: 25vw;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    width: 50vw;
+    background-color: black;
+    border-image: linear-gradient(to bottom right, rgb(122, 99, 99) 33%, rgb(240, 32, 32) 66%, white 100%) 1;
+    border-width: 3px;
+    border-style: solid;
+    opacity: 0.88;
+}
+
+#winningNumb {
+    display: flex;
+    justify-content: space-evenly;
+    width: 75%;
+    margin-top: 0.5em;
+    font-size: 2em;
+}
+
+#winningText {
+    margin-top: 1em;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+#yourNumb {
+    margin-top: 2.5em;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+#playboard {
+    height: 110%;
+    width: 80%;
+    margin-top: 0.5em;
+}
+
+#footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 0.85em;
+    line-height: 2.5em;
+}
+
+#numbersUnd {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    padding: 1em;
+    border: rgb(240, 32, 32) solid 10px;
+    border-radius: 30px;
+}
+
+.scratchOver {
+    position: absolute;
+    height: 13%;
+    width: 15%;
+    background-image: url("../../resources/royal/scratchCover.jpg");
+    background-position: 0px -12px;
+    background-size: 100%;
+    border-radius: 10px;
+    z-index: 99;
+}
+
+.scratchOver:hover {
+    cursor: pointer;
+}

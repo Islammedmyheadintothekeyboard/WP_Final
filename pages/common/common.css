@@ -1,4 +1,4 @@
-.titleFont {
+* {
     font-family: "Sekuya", system-ui;
     font-weight: 400;
     font-style: normal;
@@ -9,12 +9,45 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    width: 5%;
-    height: 5%;
+    width: 20%;
+    height: 10vh;
+    font-size: 1.5em;
 }
 
 .cellSprite {
     width: 50%;
     height: 50%;
     object-fit: cover;
+}
+
+.cellCont {
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+    padding: 1em;
+}
+
+#backLink {
+    color: rgb(33, 18, 172);
+    text-decoration: none;
+    font-size: 1.75em;
+}
+
+#money {
+    margin-top: 3vh;
+    margin-left: 3vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: rgb(33, 18, 172);
+    font-size: 1.75em;
+}
+
+#cornerCont {
+    position: fixed;
+    top: 0vh;
+    left: 0vw;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
 }
