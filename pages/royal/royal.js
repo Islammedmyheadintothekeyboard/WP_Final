@@ -36,7 +36,8 @@ function createNumberOverlay (data) {
             scratchOver.classList.add('scratchOver');
             scratchOver.onclick = function () {
                 checkWin(cell, winningNumbs);
-                scratchOver.remove();}
+                scratchOver.remove();
+            }
             cell.appendChild(scratchOver);
         }
     }
