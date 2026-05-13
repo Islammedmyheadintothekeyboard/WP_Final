@@ -84,11 +84,14 @@ span {
     position: absolute;
     height: 12%;
     width: 10%;
-    background-image: url("../../resources/royal/scratchCover.jpg");
     background-position: 12px -20px;
     background-size: 88%;
     border-radius: 10px;
     z-index: 99;
+}
+
+.royalCover {
+    background-image: url("../../resources/royal/scratchCover.jpg");
 }
 
 .scratchOver:hover {

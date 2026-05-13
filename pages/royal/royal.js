@@ -34,6 +34,7 @@ function createNumberOverlay (data) {
         for (const cell of row.children) {
             const scratchOver = document.createElement('div');
             scratchOver.classList.add('scratchOver');
+            scratchOver.classList.add('royalCover');
             scratchOver.onclick = function () {
                 checkWin(cell, winningNumbs);
                 scratchOver.remove();

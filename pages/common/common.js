@@ -20,7 +20,6 @@ class Cell {
 function randint (min, max, skip=-1) {
     let numb = Math.floor(Math.random() * (max - min + 1) + min);
     if (numb === skip) {
-        console.log("same Numb")
         numb = randint(min, max, skip);
     }
     return numb;
