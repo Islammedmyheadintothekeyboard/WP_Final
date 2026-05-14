@@ -17,6 +17,19 @@ span {
     border: solid 5px rgb(250,166,34);
 }
 
-.goldenCover {
-    background-image: url("../../resources/golden/p4background.jpg");
+.goldenTitle {
+    color: 	rgb(56, 171, 182);
+    background-image: url("../../resources/golden/goldenTitle.png");
+    border: rgb(122, 99, 99) solid 3.5px;
+}
+
+.scratchOver {
+    background-image: url("../../resources/golden/goldenCover.jpg");
+    position: absolute;
+    height: 12%;
+    width: 10%;
+    background-position: 12px;
+    background-size: 88%;
+    border-radius: 10px;
+    z-index: 99;
 }

@@ -1,5 +1,4 @@
 function createNumberLayout () {
-    const imagePaths = []
     const playboard = document.getElementById('playboard');
     const winningNumbs = document.getElementById('winningNumb');
     const numbers = document.createElement('div');
@@ -10,8 +9,11 @@ function createNumberLayout () {
         const numberRow = document.createElement('div');
         numberRow.classList.add('cellCont');
         let yourInner = "";
+        let cell;
+        let randNumb;
         for (let i=0; i<3; i++) {
-            let cell = new Cell(randint(1,19), null, randint(5,100));
+            randNumb = randint(0, imagePaths.length-1);
+            cell = new Cell(randNumb, imagePaths[randNumb], 0);
             yourInner += cell.getCell();
         }
         numberRow.innerHTML = yourInner;
@@ -20,16 +22,16 @@ function createNumberLayout () {
     }
     playboard.appendChild(numbers);
 
-    const winNumb1 = randint(1, 19);
-    const winNumb2 = randint(1, 19, winNumb1);
-    winningNumbs.innerHTML = `<div>${winNumb1}</div><div>${winNumb2}</div>`;
+    let winImg = randint(0, imagePaths.length-1);
+    winImg = new Cell(winImg, imagePaths[winImg], determinePrize(randint(1, 100)));
+    winningNumbs.innerHTML = winImg.getCell();
 
-    return [rowList, winImg1, winImg2, winImg3];
+    return [rowList, winImg];
 }
 
 function createNumberOverlay (data) {
     const rowList = data[0];
-    const winningNumbs = data.slice(1);
+    const winImg = data[1];
 
     for (const row of rowList) {
         for (const cell of row.children) {
@@ -37,7 +39,7 @@ function createNumberOverlay (data) {
             scratchOver.classList.add('scratchOver');
             scratchOver.classList.add('goldenCover');
             scratchOver.onclick = function () {
-                checkWin(cell, winningNumbs);
+                checkImageWin(imagePaths.indexOf(cell.children[0].alt), winImg.number, winImg.prize);
                 scratchOver.remove();
             }
             cell.appendChild(scratchOver);
@@ -45,10 +47,63 @@ function createNumberOverlay (data) {
     }
 }
 
-function generateTicket () {
+function checkImageWin (yourImg, winImg, winnings) {
+    if (yourImg === winImg) {
+        matchedImages++;
+        if (matchedImages >= 3) {
+            increaseMoney(winnings);
+        }
+    }
+}
+
+function generateGoldenCard () {
     createNumberOverlay(createNumberLayout());
 }
 
-createGoBack();
-createMoney();
-generateTicket();
+function determinePrize (randomNumber) {
+    let prize;
+    if (randomNumber === 100) {
+        prize = 1000;
+    }
+    else if (randomNumber >= 95) {
+        prize = 100;
+    }
+    else if (randomNumber >= 85) {
+        prize = 75;
+    }
+    else if (randomNumber >= 60) {
+        prize = 50;
+    }
+    else if (randomNumber >= 30) {
+        prize = 35
+    }
+    else  {   
+        prize = 20;
+    }
+    return prize;
+}
+
+function setup () {
+    createGoBack();
+    createMoney();
+    if (Number(sessionStorage.getItem("money")) >= 10) {
+        createRefresh(10, "$10");
+        increaseMoney(-10);
+        imagePaths = [
+                "../../resources/golden/chie.webp",
+                "../../resources/golden/ost.jpg",
+                "../../resources/golden/heaven.jpg",
+                "../../resources/golden/izanagi.webp",
+                "../../resources/golden/P4GPoster.webp",
+                "../../resources/golden/teddie.jpg"
+            ];
+
+        matchedImages = 0;
+        generateGoldenCard();
+    }
+    else {
+        document.getElementById('winningNumb').textContent = "Stop trying to cheat the system";
+    }
+}
+
+setup();

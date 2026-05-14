@@ -10,7 +10,7 @@ function createNumberLayout () {
         numberRow.classList.add('cellCont');
         let yourInner = "";
         for (let i=0; i<3; i++) {
-            let cell = new Cell(randint(1,19), null, randint(5,100));
+            let cell = new Cell(randint(1,19), null, randint(3,50));
             yourInner += cell.getCell();
         }
         numberRow.innerHTML = yourInner;
@@ -18,29 +18,41 @@ function createNumberLayout () {
         rowList.push(numberRow);
     }
     playboard.appendChild(numbers);
+    
+    let winningInner = "";
+    const winningNumbers = [];
+    let winNumb;
+    for (let numberOfWin = 0; numberOfWin < 2; numberOfWin++) {
+        winNumb = new Cell(randint(1, 19, winningNumbers), null, 0);
+        winningInner += winNumb.getCell();
+        winningNumbers.push(winNumb.number);
+    }
 
-    const winNumb1 = randint(1, 19);
-    const winNumb2 = randint(1, 19, winNumb1);
-    winningNumbs.innerHTML = `<div>${winNumb1}</div><div>${winNumb2}</div>`;
+    winningNumbs.innerHTML = winningInner;
 
-    return [rowList, winNumb1, winNumb2];
+    return [rowList, winningNumbers];
 }
 
 function createNumberOverlay (data) {
     const rowList = data[0];
-    const winningNumbs = data.slice(1);
+    const winningNumbers = data[1];
 
     for (const row of rowList) {
         for (const cell of row.children) {
             const scratchOver = document.createElement('div');
             scratchOver.classList.add('scratchOver');
-            scratchOver.classList.add('royalCover');
             scratchOver.onclick = function () {
-                checkWin(cell, winningNumbs);
+                checkWin(Number(cell.children[0].textContent), winningNumbers, Number(cell.children[1].textContent.replace("$", "")));
                 scratchOver.remove();
             }
             cell.appendChild(scratchOver);
         }
+    }
+}
+
+function checkWin (yourNumb, winNumbs, winnings) {
+    if (winNumbs.includes(yourNumb)) {
+        increaseMoney(winnings);
     }
 }
 
@@ -50,4 +62,5 @@ function generateRoyalCard () {
 
 createGoBack();
 createMoney();
+createRefresh(0, "FREE");
 generateRoyalCard();

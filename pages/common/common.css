@@ -31,6 +31,9 @@
     color: rgb(33, 18, 172);
     text-decoration: none;
     font-size: 1.75em;
+    background-color: rgb(174, 0, 255);
+    padding: 0.5em;
+    border: solid 5px white;
 }
 
 #money {
@@ -41,6 +44,10 @@
     justify-content: center;
     color: rgb(33, 18, 172);
     font-size: 1.75em;
+    background-color: rgb(174, 0, 255);
+    padding: 0.5em;
+    border: solid 5px white;
+    border-radius: 30px;
 }
 
 #cornerCont {
@@ -59,7 +66,7 @@
     width: 50vw;
     border-width: 3px;
     border-style: solid;
-    opacity: 0.88;
+    opacity: 0.9;
 }
 
 #winningNumb {
@@ -68,6 +75,7 @@
     width: 75%;
     margin-top: 0.5em;
     font-size: 2em;
+    text-align: center;
 }
 
 #winningText {
@@ -109,31 +117,34 @@
 
 #titleCard {
     font-size: 2.3em;
-    color: white;
     padding: 0.5em;
-    background-image: url("../../resources/royal/spiral.webp");
     background-size: 100%;
     background-position: center;
     border-radius: 30px 30px 0px 0px;
-    border: rgb(122, 99, 99) solid 3.5px;
-}
-
-.scratchOver {
-    position: absolute;
-    height: 12%;
-    width: 10%;
-    background-position: 12px -20px;
-    background-size: 88%;
-    border-radius: 10px;
-    z-index: 99;
 }
 
 .cellSprite {
-    height: 50%;
-    width: 50%;
+    height: 100%;
+    width: 100%;
     object-fit: cover;
 }
 
-.scratchOver:hover {
+.scratchOver:hover, #refresh:hover {
     cursor: pointer;
+}
+
+#refresh {
+    position: fixed;
+    bottom: 5vh;
+    left: 5vw;
+    height: 5vh;
+    width: 7.5vw;
+    font-size: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: black solid 5px;
+    background-color: white;
+    padding: 0.5em;
+    border-radius: 30px;
 }
