@@ -1,0 +1,46 @@
+body {
+    background-image: url("../../resources/moon/moonBack.jpeg");
+    background-size: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+span {
+    text-align: center;
+}
+
+.moonTicket {
+    background-color: rgb(81,238,252);
+    color: 	rgb(18,105,204);
+    border: solid 5px rgb(109,154,199)
+}
+
+#ticketM {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 75vw;
+    opacity: 0.9;
+}
+
+.moonTitle {
+    color: 	rgb(18,105,204);
+}
+
+.scratchOver {
+    background-image: url("../../resources/moon/mori.jpg");
+    position: absolute;
+    height: 12%;
+    width: 10%;
+    background-position: 12px;
+    background-size: 88%;
+    border-radius: 10px;
+    z-index: 99;
+    background-repeat: no-repeat;
+}
+
+.moonBorder {
+    border: rgb(109,154,199) solid 10px;
+}
